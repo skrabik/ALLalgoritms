@@ -24,7 +24,7 @@ for i in range(1, n):
     indexes[i] = ind
     if data[i] > subsequence[-1]:
         subsequence.append(data[i])
-    elif True:
+    else:
         ind = bynary_search(subsequence, data[i])
         subsequence[ind] = data[i]
 
