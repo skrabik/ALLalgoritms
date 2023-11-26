@@ -1,5 +1,8 @@
 # задача
 # Найти длину самой большой возрастающей подпоследовательности в массиве
+
+# https://habr.com/ru/articles/343210/
+
 def bynary_search(array, target):
     l = 0
     r = len(array)
@@ -31,10 +34,3 @@ for i in range(1, n):
     max_length = max(max_length, indexes[i])
 print(max(indexes)+1)
 print(subsequence)
-
-# https://habr.com/ru/articles/343210/
-
-
-
-
-

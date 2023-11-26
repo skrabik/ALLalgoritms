@@ -11,3 +11,4 @@ def bynary_search(array, target):
         else:
             r = mid
     return r
+

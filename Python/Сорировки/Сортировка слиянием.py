@@ -43,6 +43,3 @@ if n == 0:
     print('')
 else:
     print(" ".join(list(map(str, merge_sort(data)))))
-
-
-

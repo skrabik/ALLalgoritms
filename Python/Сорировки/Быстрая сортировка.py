@@ -16,10 +16,6 @@ def quick_sort(arr):
             e.append(i)
     return quick_sort(l) + e + quick_sort(r)
 
-N = int(input())
-if N == 0:
-    print('')
-else:
-    data = [int(i) for i in input().split()]
-    print(" ".join(list(map(str, quick_sort(data)))))
+data = [int(i) for i in input().split()]
+print(" ".join(list(map(str, quick_sort(data)))))
 
