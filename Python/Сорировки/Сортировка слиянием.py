@@ -29,8 +29,6 @@ def merge(arr1, arr2):
 def merge_sort(arr):
     if len(arr) == 1:
         return arr
-    elif len(arr) == 1:
-        return merge(arr[0], arr[1])
 
     r = arr[len(arr) // 2:]
     l = arr[:len(arr) // 2]

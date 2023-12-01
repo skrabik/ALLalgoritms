@@ -27,6 +27,3 @@ while len(cache) != 0:
                 cache.append(i)
             searched.append(i)
         cache = cache[1:]
-
-
-

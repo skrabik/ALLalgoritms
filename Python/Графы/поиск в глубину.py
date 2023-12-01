@@ -24,7 +24,6 @@ while len(cache) != 0:
     for i in graph[el]:
        if i not in searched:
            cache.insert(0, i)
-    # print(cache)
 print(enter_order)
 
 N = int(input())

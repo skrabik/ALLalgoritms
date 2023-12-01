@@ -12,15 +12,15 @@ for i in range(len(data)):
 
 print(mx_till)
 
-n = int(input())
-data = list(map(int, input().split()))
-dp = [-10**9 for i in range(n)]
-mx = 0
-answer = -10**9
-for i in range(n):
-    if i-1 >= 0 and data[i] % 2 != data[i-1] % 2:
-        dp[i] = dp[i-1] + data[i]
-    dp[i] = max(dp[i], data[i])
-    answer = max(answer, dp[i])
-
-print(answer)
+# n = int(input())
+# data = list(map(int, input().split()))
+# dp = [-10**9 for i in range(n)]
+# mx = 0
+# answer = -10**9
+# for i in range(n):
+#     if i-1 >= 0 and data[i] % 2 != data[i-1] % 2:
+#         dp[i] = dp[i-1] + data[i]
+#     dp[i] = max(dp[i], data[i])
+#     answer = max(answer, dp[i])
+#
+# print(answer)
