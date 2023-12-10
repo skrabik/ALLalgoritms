@@ -32,7 +32,7 @@ def get_next_ver(ver, rassm):
                 rez = i
     return rez
 
-def get_all_ver(el, rassm):
+def get_all_ver(el, rassm): # ???
     return adj[el]
 
 
