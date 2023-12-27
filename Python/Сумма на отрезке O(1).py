@@ -3,7 +3,7 @@ helper = [0] * len(s)
 helper[0] = s[0]
 
 for i in range(1, len(s)):
-    helper[i] = helper[i-] + s[i]
+    helper[i] = helper[i-1] + s[i]
 
 # 4 - 6 сумма
 print(helper)
