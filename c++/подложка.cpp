@@ -15,7 +15,7 @@
 #include <ctime>
 
 using namespace std;
-
+using str = string;
 using ll = long long;
 #define vi vector<int>
 #define vll vector<ll>
