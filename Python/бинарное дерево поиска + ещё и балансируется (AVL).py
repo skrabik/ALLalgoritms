@@ -256,15 +256,20 @@ class BinaryTree:
             yield v
 
 tree = BinaryTree()
-tree.insert(10)
 tree.insert(3)
-tree.insert(18)
+tree.insert(2)
 tree.insert(4)
-tree.insert(20)
-# print(3 in tree)
-# print(100 in tree)
-# for i in tree:
-    # print(i)
-tree.remove(3)
-for i in tree:
-    print(i)
+tree.insert(7)
+tree.insert(6)
+tree.insert(1)
+tree.insert(5)
+tree.insert(8)
+
+print(tree.root.value)
+print(tree.root.left.value)
+print(tree.root.right.value)
+# tree.remove(3)
+# # tree.remove(4)
+# print(tree.root.value)
+
+
