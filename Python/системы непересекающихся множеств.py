@@ -74,4 +74,55 @@ def Union(arr, x, y):
     arr[x] = y
     return arr
 
+class DSU_New:
+    def __init__(self, n):
+        self.sets = [i for i in range(n+1)]
+        self.quantity = [1 for i in range(n+1)]
 
+    def get_parent(self, u):
+        if self.sets[u] == u:
+            return u
+        self.sets[u] = self.get_parent(self.sets[u])
+        return self.sets[u]
+
+    def union(self, u, v):
+        u = self.get_parent(u)
+        v = self.get_parent(v)
+        if u == v: 
+            return
+        
+        if self.quantity[u] < self.quantity[v]:
+            u, v = v, u
+        self.quantity[u] += self.quantity[v]
+        self.sets[v] = u
+        return u
+    
+    def check(self, u, v):
+        return self.get_parent(u) == self.get_parent(v)
+    
+
+class DSU_segments:
+    def __init__(self, n):
+        self.sets = [i for i in range(n+1)]
+        self.quantity = [1 for i in range(n+1)]
+        self.rigth = [i for i in range(n+1)]
+
+    def get_parent(self, u):
+        if self.sets[u] == u:
+            return u
+        self.sets[u] = self.get_parent(self.sets[u])
+        return self.sets[u]
+
+    def union(self, L, R):
+        L, R = self.get_parent(L), self.get_parent(R)
+        if L == R: 
+            return
+        if self.quantity[R] < self.quantity[L]:
+            R, L = L, R
+        self.quantity[R] += self.quantity[L]
+        self.sets[L] = R
+        self.rigth[R] = max(self.rigth[L], self.rigth[R])
+    
+    def check(self, u, v):
+        return self.get_parent(u) == self.get_parent(v)
+    
