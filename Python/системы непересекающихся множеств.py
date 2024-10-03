@@ -121,8 +121,49 @@ class DSU_segments:
             R, L = L, R
         self.quantity[R] += self.quantity[L]
         self.sets[L] = R
-        self.rigth[R] = max(self.rigth[L], self.rigth[R])
+        self.rigth[L] = max(self.rigth[L], self.rigth[R])
     
     def check(self, u, v):
         return self.get_parent(u) == self.get_parent(v)
     
+
+class DSU_whith_Rollbacks:
+    def __init__(self, n):
+        self.sets = [i for i in range(n+1)]
+        self.quantity = [1 for i in range(n+1)]
+        self.history = []
+        self.count = n
+        self.points = []
+
+    def get_parent(self, u):
+        if self.sets[u] == u:
+            return u
+        return self.get_parent(self.sets[u])
+
+    def union(self, u, v):
+        u = self.get_parent(u)
+        v = self.get_parent(v)
+        if u == v: 
+            print(self.count)
+            return
+        self.count -= 1
+        print(self.count)
+        if self.quantity[u] < self.quantity[v]:
+            u, v = v, u
+        self.quantity[u] += self.quantity[v]
+        self.history.append([v, self.sets[v], self.count])
+        self.sets[v] = u
+    
+    def set_checkpoint(self):
+        self.points.append(len(self.history))
+
+    def rollback(self):
+        point = self.points.pop()
+        while len(self.history) > point:
+            ver, val, c = self.history.pop()
+            self.sets[ver] = val
+        if len(self.history):
+            self.count = self.history[-1][2]
+        else:
+            self.count = n
+        print(self.count)
