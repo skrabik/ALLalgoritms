@@ -3,6 +3,7 @@
 #https://www.youtube.com/watch?v=pzUMwIjMFso&t=1009s
 #
 
+
 n = int(input())
 data = [int(i) for i in input().split()]
 dp = [[0 for i in range(n)] for _ in range(n)]
