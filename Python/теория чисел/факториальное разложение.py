@@ -10,4 +10,4 @@ def primfacs(n):
        primfac.append(int(n))
    return primfac
 
-print(primfacs(10))
+print(primfacs(1000))
