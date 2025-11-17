@@ -18,41 +18,33 @@
 """
 
 
-# Объектная реализация
 class DSU:
-    """
-    Класс, реализующий системы непересекающихся множеств
-    """
+    def __init__(self, n):
+        self.sets = [i for i in range(n)]
+        self.rank = [0 for i in range(n)]
+        
+    def find(self, x):
+        if self.sets[x] == x:
+            return x 
+        self.sets[x] = self.find(self.sets[x])
+        return self.sets[x]
 
-    def __init__(self):
+    def union(self, x, y):
+        x = self.find(x)
+        y = self.find(y)
 
-        self.p = [0]
-        # этот функционал можно опустить (он не доделан)
-        self.height = [1]
+        if x == y: 
+            return False 
 
-    def MakeSet(self, x):
-        self.p.append(x)
+        if self.rank[x] < self.rank[y]:
+            self.sets[x] = y
+        elif self.rank[x] > self.rank[y]:
+            self.sets[y] = x
+        else:
+            self.sets[y] = x
+            self.rank[x] += 1
 
-    def Find(self, x):
-        if self.p[x] == x:
-            return x
-        self.p[x] = self.Find(self.p[x])
-        return self.p[x]
-
-    def Union(self, x, y):
-        x = self.Find(x)
-        y = self.Find(y)
-
-        self.p[x] = y
-
-        # реализация с высотой поддерева
-        # if self.height[x] < self.height[y]:
-        #     self.p[x] = y
-        # else:
-        #     self.p[y] = x
-
-        # можно ничего не возвращать
-        return y
+        return True
 
 
 # Функциональная реализация (Должна быть побыстрее и по памяти лучше)
